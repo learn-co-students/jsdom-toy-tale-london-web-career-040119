@@ -1,7 +1,7 @@
 const addBtn = document.querySelector('#new-toy-btn')
 const toyForm = document.querySelector('.container')
 const showToys = document.querySelector('#toy-collection')
-
+const form = document.querySelector(".add-toy-form")
 // let addToy = false
 
 // YOUR CODE HERE
@@ -75,14 +75,18 @@ getToys()
   .then(toys => addToys(toys))
 
 //create individual toy
-const toy = {
-  name: formEl.name.value,
-  image: formEl.image.value,
-  likes: 0
-  
+form.addEventListener("submit", function (event) {
+  event.preventDefault()
+  const toy = {
+    name: formEl.name.value,
+    image: formEl.image.value,
+    likes: 0
+  }
   createToy(toy)
-	    .then(toy => addBook(toy))
-}
+    .then(toy => addtoy(toy))
+  formEl.reset()
+
+})
 
 function createToy (toy) {
 
