@@ -1,8 +1,9 @@
 const addBtn = document.querySelector('#new-toy-btn');
 const toyForm = document.querySelector('.container');
 const toyCollection = document.querySelector('#toy-collection');
-
+const form = document.querySelector(".add-toy-form")
 const baseUrl = 'http://localhost:3000/toys';
+
 
 let showAddForm = false;
 
@@ -47,9 +48,32 @@ function addToys(toys) {
   });
 }
 
+function createToy(toyData) {
+  const postConfig = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(toyData)
+  };
+  return fetch(baseUrl, postConfig)
+  .then(resp => resp.json())
+}
 // OR HERE!
 document.addEventListener('DOMContentLoaded', (event) => {
   fetchToys(baseUrl)
     .then(parseToys)
     .then(addToys);
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const toy = {name: form.name.value,
+                image: form.image.value,
+                likes: 0
+    }
+    createToy(toy)
+      .then(toy => addToy(toy))
+  })
 });
+
+
