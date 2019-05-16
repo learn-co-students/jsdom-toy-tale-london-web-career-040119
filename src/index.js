@@ -53,23 +53,11 @@ function renderToys(data){
   data.forEach(function (toy) {
      const divCard = document.createElement("div")
 
-
-    //fetch(image)
-    //    .then(resp => resp.json())
-    //    .then(obj => obj.image)
-    //    .then(img => div_card.innerHTML += `<h2>${img}</h2>`)
-
       divCard.className = "card"
       divCard.innerHTML =
         `<h2>${toy.name}</h2>
         <img class="toy-avatar" src="${toy.image}"/>`
-      //const div_container = document.createElement("div")
-      //div_container.className = "container"
-      //const imageWrapper = document.createElement('div')
-      //imageWrapper.innerHTML = `<img src="${toy.image}">`
-      //div_container.appendChild(imageWrapper)
-      //div_card.appendChild(div_container)
-      //div_card.innerHTML = `<img src="${toy.image}">`
+      
       divCard.innerHTML += `<p>Likes: ${toy.likes}</p>`
       //toyCollection.append(div_container)
       let likeButton = document.createElement('button')
