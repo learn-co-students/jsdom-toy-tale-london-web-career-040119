@@ -39,6 +39,17 @@ function addToy(toy) {
     <button class="like-btn">Like <3</button>
   `;
   card.innerHTML = html;
+  const likeBtn = card.querySelector('button')
+  likeBtn.addEventListener('click', e => {
+    e.preventDefault();
+    fetch(baseUrl +`/${toy.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({likes: ++toy.likes })
+    })
+  })
   toyCollection.appendChild(card);
 }
 
