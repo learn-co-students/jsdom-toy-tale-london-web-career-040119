@@ -4,13 +4,13 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 7
+      "likes": 13
     },
     {
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 14
+      "likes": 231135
     },
     {
       "id": 3,
@@ -53,24 +53,6 @@
       "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
       "likes": 1,
       "id": 9
-    },
-    {
-      "name": "fran",
-      "image": "kjhkjhkjhjkj",
-      "likes": 0,
-      "id": 10
-    },
-    {
-      "name": "rich",
-      "image": "kjhkhjjkas",
-      "likes": 0,
-      "id": 11
-    },
-    {
-      "name": "guy",
-      "image": "hkjhjhkjhkjh",
-      "likes": 1,
-      "id": 12
     }
   ]
 }
