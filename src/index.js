@@ -37,11 +37,29 @@ function renderToy(toy){
   likeBtn.setAttribute('class', 'like-btn')
   likeBtn.innerHTML = 'Like'
 
+  likeBtn.addEventListener('click', () => {
+    debugger
+    toy.likes++
+    likesTag.innerHTML = toy.likes
+    incrementLikes(toy)
+  })
+
   card.append(nameTag)
   card.append(likesTag)
   card.append(imageTag)
   card.append(likeBtn)
   toyCollection.append(card)
+}
+
+function incrementLikes(toy){
+  return fetch(`${toysURL}/${toy.id}`, {
+    method: 'PATCH',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      likes: toy.likes
+    })
+  })
+  .then(resp => resp.json())
 }
 
 function renderToys(toys){
@@ -51,7 +69,7 @@ function renderToys(toys){
 }
 
 function addNewToy(toyItem){
-  
+
   return fetch(toysURL, {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
@@ -62,7 +80,7 @@ function addNewToy(toyItem){
 
 newToyForm.addEventListener('submit', e => {
   e.preventDefault()
-debugger
+
   let toyItem = {
     name: nameInput.value,
     image: imageInput.value,
